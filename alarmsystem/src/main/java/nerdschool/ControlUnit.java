@@ -7,10 +7,10 @@ public class ControlUnit {
 
   private final ArrayList<Sensor> sensors;
 
-  public ControlUnit() {
-    this.sensors = new ArrayList<>();
-    sensors.add(new FireSensor());
-    sensors.add(new SmokeSensor());
+
+  public ControlUnit(ArrayList<Sensor> sensors) {
+    this.sensors = sensors;
+
   }
 
   public void pollSensors() {

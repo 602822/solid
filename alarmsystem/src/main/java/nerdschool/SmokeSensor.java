@@ -1,6 +1,8 @@
 package nerdschool;
 
-public class SmokeSensor implements Sensor {
+public class SmokeSensor implements Sensor, BatteryDrivenSensor {
+
+  private Chategory chategory;
 
   private String location;
   private double batteryPrecentage;
@@ -9,12 +11,22 @@ public class SmokeSensor implements Sensor {
 
   private int numberOfPolls;
 
-  public SmokeSensor(String location, String sensorType
+  public SmokeSensor( String sensorType, String location
       ) {
+    this.sensorType = sensorType;
     this.location = location;
     this.batteryPrecentage = 100;
-    this.sensorType = sensorType;
     this.numberOfPolls = 0;
+    this.chategory = Chategory.HAZARD;
+  }
+
+
+  public Chategory getChategory() {
+    return chategory;
+  }
+
+  public void setChategory(Chategory chategory) {
+    this.chategory = chategory;
   }
 
   public void setNumberOfPolls(int numberOfPolls) {
@@ -37,7 +49,6 @@ public class SmokeSensor implements Sensor {
 
     if(batteryPrecentage > 0) {
      setBatteryPrecentage(batteryPrecentage - 20);
-
     }
 
     if(numberOfPolls % 2 == 0 && batteryPrecentage != 0) {

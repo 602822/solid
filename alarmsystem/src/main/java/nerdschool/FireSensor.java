@@ -1,7 +1,8 @@
 package nerdschool;
 
-public class FireSensor implements Sensor {
+public class FireSensor implements Sensor, BatteryDrivenSensor {
 
+  private Chategory chategory;
   private String sensorType;
   private double batteryPrecent;
 
@@ -9,12 +10,18 @@ public class FireSensor implements Sensor {
 
   private int numberOfPolls;
 
+  public Chategory getChategory() {
+    return chategory;
+  }
+
+
 
   public FireSensor(String sensorType, String location) {
     this.sensorType = sensorType;
     this.batteryPrecent = 100;
     this.location = location;
     this.numberOfPolls = 0;
+    this.chategory = Chategory.HAZARD;
   }
 
   public void setBatteryPrecent(double batteryPrecent) {

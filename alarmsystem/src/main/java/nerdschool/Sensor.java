@@ -2,7 +2,10 @@ package nerdschool;
 
 public interface Sensor {
 
-
+enum Chategory {
+  HAZARD,
+ SECURITY
+}
 
 
 
@@ -12,5 +15,7 @@ public interface Sensor {
 
   String getSensorType();
 
-  double getBatteryPercentage();
+  Chategory getChategory();
+
+
 }
